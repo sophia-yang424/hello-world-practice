@@ -13,8 +13,6 @@ for i in range(13):
         key += 1
 dicts[52] = "unknown"
 
-print(dicts)
-
 # creating deck
 def createDeck():
     for x in range(52):
