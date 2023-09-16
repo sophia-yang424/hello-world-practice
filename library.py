@@ -31,10 +31,6 @@ def shuffelDeck():
         deck[randomNum1] = deck[randomNum2]
         deck[randomNum2] = tempCard
 
-# hands of players
-p1Hand = []
-p2Hand = []
-
 # dealing players two cards: player input is p1Hand or p2Hand
 def deal(player):
     player.append(deck[0])
