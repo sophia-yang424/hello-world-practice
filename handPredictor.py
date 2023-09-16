@@ -9,10 +9,10 @@ from keras.layers import Input, Concatenate, Dense, Reshape
 from pokerEnv import count
 if count!=0 and count%100==0:
     
-    fiveCards = np.load(fiveCards)[count-101:]
-    ratioToPot = np.load(ratioToPot)[count-101:]
-    ratioToChip = np.load(ratioToChip)[count-101:]
-    twoCards = np.load(twoCards)[count-101:]
+    fiveCards = np.load(fiveCards)
+    ratioToPot = np.load(ratioToPot)
+    ratioToChip = np.load(ratioToChip)
+    twoCards = np.load(twoCards)
 
     model = Sequential([
         input1 = tf.keras.layers.Input(shape=(1,)),
