@@ -29,5 +29,5 @@ if count!=0 and count%100==0:
     model.fit([fiveCards, ratioToPot, ratioToChip], twoCards, epochs=100, batch_size=32)
 
     model.save('Directory/handPredictor.h5')
-    model.save_weights('/kaggle/working/weights.h5')
+    model.save_weights('Directory/weights.h5')
 
