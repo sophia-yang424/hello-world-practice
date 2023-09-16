@@ -21,7 +21,7 @@ def predHandGen(count):
         ratioToChip = np.array(ratioToChip)
 
         twoCards = np.array(twoCards)
-        twoCards = twoCards / 52
+        twoCards = twoCards / 51
         
         input1 = Input(shape=(5,))
         input2 = Input(shape=(1,))
