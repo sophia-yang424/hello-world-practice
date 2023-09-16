@@ -15,13 +15,14 @@ if count!=0 and count%100==0:
     twoCards = np.load(twoCards)
 
     model = Sequential([
-        input1 = tf.keras.layers.Input(shape=(1,)),
+        input1 = tf.keras.layers.Input(shape=(5,)),
         input2 = tf.keras.layers.Input(shape=(1,)),
         input3 = tf.keras.layers.Input(shape=(1,)),
-        merged = tf.keras.layers.Concatenate(axis=1)([input1, input2, input3]).
+        merged = tf.keras.layers.Concatenate(axis=-1)([input1, input2, input3]).
         Dense(128, input_dim=3, activation='softmax', use_bias=True)(merged),
         Dense(128, dropout=0.2, recurrent_dropout=0.2),
-        Dense(),
+        Dense(128, dropout=0.2, recurrent_dropout=0.2),
+        Dense(2),
     ])
 
     model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
