@@ -1,10 +1,5 @@
-import Card
-import deck
-import Player
-
-from typing import List
-
 class Card:
+
     def __init__(self, number, suite, cardId):
         self.number = number
         self.suite = suite
@@ -18,6 +13,7 @@ class Card:
 
     def getCardId(self):
         return self.cardId
+
 
 class Player:
     def __init__(self):
@@ -51,6 +47,7 @@ class Deck:
                 card = Card(numbers[i], suits[j], cardCounter)
                 deck.append(card)
                 cardCounter += 1
+
 def resetDeck():
     cardCounter = 0
     for i in range(13):
@@ -110,8 +107,6 @@ def getPlayer1():
 
 def getPlayer2():
     return player2
-
-
 
 test = deck()
 test.dealPreFlop()
