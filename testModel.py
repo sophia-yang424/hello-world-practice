@@ -14,5 +14,7 @@ test3 = np.array(test3)
 test = [test1, test2, test3]
 
 result = model.predict(test)
-print(result * 51 + 1)
+
+predictedHand = round(result * 52)
+print(predictedHand)
 
