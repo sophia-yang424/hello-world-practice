@@ -15,6 +15,6 @@ test = [test1, test2, test3]
 
 result = model.predict(test)
 
-predictedHand = round(result * 52)
+predictedHand = round(result * 51)
 print(predictedHand)
 
