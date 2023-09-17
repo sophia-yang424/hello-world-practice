@@ -1,7 +1,9 @@
 from library import dicts, deck, p1Hand, p2Hand, fiveCard, fiveCards, ratioToPot, ratioToChip, twoCards
 from library import createDeck, shuffelDeck, deal, openCard, appendData
 
-from betting import ratioToPot, ratioToChip
+from betting3 import ratioToPot, ratioToChip
+from betting3 import preflopBet
+
 
 from handPredictor import predHandGen
 
@@ -19,7 +21,7 @@ while cont == True:
     deal(p1Hand)
     deal(p2Hand)
 
-    # betting
+    preflopBet()
     appendData()
 
     for x in range(3):
