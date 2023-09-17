@@ -2,7 +2,7 @@ from library import dicts, deck, p1Hand, p2Hand, fiveCard, fiveCards, ratioToPot
 from library import createDeck, shuffelDeck, deal, openCard, appendData
 
 from betting3 import ratioToPot, ratioToChip
-from betting3 import preflopBet
+from betting3 import preflopBet, flopBet, riverBet, floodBet, resultsFunction
 
 
 from handPredictor import predHandGen
@@ -21,30 +21,31 @@ while cont == True:
     deal(p1Hand)
     deal(p2Hand)
 
+    # first bet before any card flipped
     preflopBet()
     appendData()
 
+    # 3 cards flipped and bet
     for x in range(3):
         openCard(x)
-
-    # betting
+    flopBet()
     appendData()
 
+    # 4th card flipped and bet
     openCard(3)
-
-    # betting
+    riverBet()
     appendData
 
+    # 5th card flipped and bet
     openCard(4)
-
-    # betting
+    floodBet()
     appendData()
 
-    # print("Who is the winner?")
-    # or
-    # ranking 
+    # checking winner
+    resultsFunction()
 
-    predHandGen()
+    # hand-predictor-model generation if total dataset is increased by 100
+    predHandGen(len(twoCards))
 
     passed = False
 
