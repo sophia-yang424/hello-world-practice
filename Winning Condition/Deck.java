@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Deck {
     private Card[] deck;
     private String[] suits = {"Spade", "Diamonds", "Heart", "Club"};
-    private String[] numbers = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+    private String[] numbers = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"};
 
     private Player player1;
     private Player player2;
@@ -108,4 +108,9 @@ public class Deck {
     public Player getPlayer2() {
         return player2;
     }
+
+    public ArrayList<Card> getSharedCard() {
+        return sharedCard;
+    }
+
 }
