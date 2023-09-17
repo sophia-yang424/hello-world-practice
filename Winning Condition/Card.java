@@ -1,7 +1,7 @@
 public class Card {
-    String number;
-    String suite;
-    int cardId;
+   private  String number;
+    private String suite;
+    private int cardId;
 
     public Card (String number, String suite, int cardId){
         this.number = number;
