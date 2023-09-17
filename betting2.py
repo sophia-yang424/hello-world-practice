@@ -165,10 +165,13 @@ def preflopBet():
                 break
     #list appending
 
-    ratioToChip.append(round((player1_bet_1 / player1_wealth),3))
-    player1_wealth -= player1_bet_1
-    ratioToChip.append(round((player2_bet_1 / player2_wealth), 3))
-    player2_wealth -= player2_bet_1
+    if player1_wealth == 0 or player2_wealth == 0:
+        ratioToChip.append(1.00)
+    else: 
+        ratioToChip.append(round((player1_bet_1 / player1_wealth), 3))
+        player1_wealth -= player1_bet_1
+        ratioToChip.append(round((player2_bet_1 / player2_wealth), 3))
+        player2_wealth -= player2_bet_1
     #pot addition
     global pot
     pot = pot + player1_bet_1 + player2_bet_1
@@ -308,10 +311,13 @@ def flopBet():
                 notMatchBool = False
                 break
     #list appending
-    ratioToChip.append(round((player1_bet_2 / player1_wealth), 3))
-    player1_wealth -= player1_bet_2
-    ratioToChip.append(round((player2_bet_2 / player2_wealth), 3))
-    player2_wealth -= player2_bet_2
+    if player1_wealth == 0 or player2_wealth == 0:
+        ratioToChip.append(1.00)
+    else: 
+        ratioToChip.append(round((player1_bet_2 / player1_wealth), 3))
+        player1_wealth -= player1_bet_2
+        ratioToChip.append(round((player2_bet_2 / player2_wealth), 3))
+        player2_wealth -= player2_bet_2
     #pot addition
     global pot
     pot = pot + player1_bet_2 + player2_bet_2
@@ -449,10 +455,13 @@ def riverBet():
                 notMatchBool = False
                 break
     #list appending
-    ratioToChip.append(round((player1_bet_3 / player1_wealth), 3))
-    player1_wealth -= player1_bet_3
-    ratioToChip.append(round((player2_bet_3 / player2_wealth), 3))
-    player2_wealth -= player2_bet_3
+    if player1_wealth == 0 or player2_wealth == 0:
+        ratioToChip.append(1.00)
+    else: 
+        ratioToChip.append(round((player1_bet_3 / player1_wealth), 3))
+        player1_wealth -= player1_bet_3
+        ratioToChip.append(round((player2_bet_3 / player2_wealth), 3))
+        player2_wealth -= player2_bet_3
     #pot addition
     global pot
     pot = pot + player1_bet_3 + player2_bet_3
@@ -594,10 +603,13 @@ def floodBet():
                 notMatchBool = False
                 break
     #list appending
-    ratioToChip.append(round((player1_bet_4 / player1_wealth), 3))
-    player1_wealth -= player1_bet_4
-    ratioToChip.append(round((player2_bet_4 / player2_wealth), 3))
-    player2_wealth -= player2_bet_4
+    if player1_wealth == 0 or player2_wealth == 0:
+        ratioToChip.append(1.00)
+    else: 
+        ratioToChip.append(round((player1_bet_4 / player1_wealth), 3))
+        player1_wealth -= player1_bet_4
+        ratioToChip.append(round((player2_bet_4 / player2_wealth), 3))
+        player2_wealth -= player2_bet_4
     #pot addition 
     global pot
     pot = pot + player1_bet_4 + player2_bet_4
