@@ -13,6 +13,10 @@ for i in range(13):
         key += 1
 dicts[52] = "unknown"
 
+# hands of players
+p1Hand = []
+p2Hand = []
+
 # creating deck
 def createDeck():
     for x in range(52):
@@ -59,6 +63,5 @@ twoCards = []
 # appending data for ML model: player input is p1Hand or p2Hand
 def appendData(player):
     fiveCards.append(fiveCard)
-    ratioToPot.append()
-    ratioToChip.append()
-    twoCards.append(player)
+    twoCards.append(p1Hand)
+    twoCards.append(p2Hand)
