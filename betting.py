@@ -49,12 +49,16 @@ def preflopBet():
     global player2_wealth
     global player1_bet_1
     global player2_bet_1
+    global askFold
+    askFold = ""
 
-    player1_bet_1 = int(float(input("Player 1 bet amount, or a.) check, b.) fold): ")))
-    #preventing outbetting
-    if player1_bet_1 == "a":
+    player1_bet_1 = int(float(input("Player 1 bet amount, or (-1)) check, (-2)) fold): ")))
+    #checking/fold
+    if player1_bet_1 == -1:
         player1_bet_1 = 0
-    elif player1_bet_1 == "b":
+        print("Check!")
+    elif player1_bet_1 == -2:
+        print("You folded!")
         exit()
     if player1_bet_1 > player2_wealth:
         outBetBool = True
@@ -76,15 +80,6 @@ def preflopBet():
             notMatchBool = False
         while notMatchBool:
             player1_bet_1 = int(float(input("Please either match the other player's bet or raise: ")))
-            if player1_bet_1 == 0:
-                askFold = input("Are you sure you want to fold?: ")
-                if askFold == "yes" or askFold == "Yes":
-                    exit()
-                elif askFold == "no" or askFold == "No":
-                    continue
-                else: 
-                    print("Please type a valid answer.")
-
             if player1_bet_1 < player2_bet_1:
                 notMatchBool = True
                 continue  
@@ -95,7 +90,16 @@ def preflopBet():
     player1_wealth -= player1_bet_1
     global recordList 
     recordList.append(player1_bet_1 / player1_wealth)
-    player2_bet_1 = int(float(input("Player 2 bet amount: ")))
+    player2_bet_1 = int(float(input("Player 2 bet amount, or (-1)) check, (-2)) fold): ")))
+    if player1_bet_1 == -1 :
+        askCheck = input("Do you want to check? ")
+    #checking/folding
+    if player1_bet_1 == -1:
+        player1_bet_1 = 0
+        print("Check!")
+    elif player1_bet_1 == -2:
+        print("You folded!")
+        exit()
     #prevent outbetting
     if player2_bet_1 > player1_wealth:
         outBetBool = True
@@ -121,6 +125,7 @@ def preflopBet():
             if player1_bet_1 == 0:
                 askFold = input("Are you sure you want to fold?: ")
             if askFold == "yes" or askFold == "Yes":
+                print("You folded!")
                 exit()
             elif askFold == "no" or askFold == "No":
                 continue
