@@ -1,5 +1,7 @@
-from library import dicts, deck, fiveCard
-from library import createDeck, shuffelDeck, deal, openCard
+from library import dicts, deck, fiveCard, fiveCards, ratioToPot, ratioToChip, twoCards
+from library import createDeck, shuffelDeck, deal, openCard, appendData
+
+from handPredictor import predHandGen
 
 # whether to continue the game
 cont = True
@@ -7,11 +9,6 @@ cont = True
 # hands of players
 p1Hand = []
 p2Hand = []
-
-# data collected in the following arrays
-fiveCards = []
-ratioToPot = []
-ratioToChip = []
 
 while cont == True:
     # initiating game 
@@ -25,23 +22,29 @@ while cont == True:
     deal(p2Hand)
 
     # betting
+    appendData()
 
     for x in range(3):
         openCard(x)
 
     # betting
+    appendData()
 
     openCard(3)
 
     # betting
+    appendData
 
     openCard(4)
 
     # betting
+    appendData()
 
     # print("Who is the winner?")
     # or
     # ranking 
+
+    predHandGen()
 
     passed = False
 
@@ -57,8 +60,3 @@ while cont == True:
             passed = True
         else:
             print("Invalid input")
-
-
-print(deck)
-print(len(deck))
-print(openCard)
