@@ -42,7 +42,6 @@ def deal(player):
     deck.remove(deck[len(deck)-1])
     deck.remove(deck[len(deck)-1])
 
-
 # five cards 
 fiveCard = [52,52,52,52,52]
 
