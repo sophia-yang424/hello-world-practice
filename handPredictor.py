@@ -7,13 +7,6 @@ from keras.layers import Input, Concatenate, Dense, Dropout
 
 def predHandGen(count):
     if count!=0 and count%100==0:
-        
-        '''
-        fiveCards = np.load(fiveCards)
-        ratioToPot = np.load(ratioToPot)
-        ratioToChip = np.load(ratioToChip)
-        twoCards = np.load(twoCards)
-        '''
 
         fiveCards = np.array(fiveCards)
         ratioToPot = np.array(ratioToPot)
