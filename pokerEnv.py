@@ -1,14 +1,12 @@
-from library import dicts, deck, fiveCard, fiveCards, ratioToPot, ratioToChip, twoCards
+from library import dicts, deck, p1Hand, p2Hand, fiveCard, fiveCards, ratioToPot, ratioToChip, twoCards
 from library import createDeck, shuffelDeck, deal, openCard, appendData
+
+from betting import ratioToPot, ratioToChip
 
 from handPredictor import predHandGen
 
 # whether to continue the game
 cont = True
-
-# hands of players
-p1Hand = []
-p2Hand = []
 
 while cont == True:
     # initiating game 
@@ -49,7 +47,7 @@ while cont == True:
     passed = False
 
     while passed == False:
-        print("Do you want to conitnue? <yes/no>")
+        print("Do you want to continue? <yes/no>")
         response = input()
         response = response.lower()
 
