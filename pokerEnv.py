@@ -48,6 +48,7 @@ while cont == True:
     appendData()
 
     # checking winner
+    # will be replaced by the actual ranking program (currently in "main.java" file)
     resultsFunction()
 
     # hand-predictor-model generation if total dataset is increased by 100
