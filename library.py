@@ -48,3 +48,17 @@ def openCard(phase):
     for a in range(len(deck)-1):
         deck[a] = deck[a+1]
     deck.remove(deck[len(deck)-1])
+
+# data collected in the following arrays
+fiveCards = []
+ratioToPot = []
+ratioToChip = []
+
+twoCards = []
+
+# appending data for ML model: player input is p1Hand or p2Hand
+def appendData(player):
+    fiveCards.append(fiveCard)
+    ratioToPot.append()
+    ratioToChip.append()
+    twoCards.append(player)
