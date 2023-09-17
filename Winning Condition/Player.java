@@ -20,6 +20,10 @@ public class Player {
             System.out.print(playerPersonalHand.get(i).getNumber() + " " + playerPersonalHand.get(i).getSuite() + "  ");
         }
     }
+
+    public ArrayList<Card> getPlayerPersonalHand() {
+        return playerPersonalHand;
+    }
 }
 
 
