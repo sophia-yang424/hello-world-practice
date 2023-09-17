@@ -5,7 +5,6 @@ import tensorflow as tf
 from keras.models import Model
 from keras.layers import Input, Concatenate, Dense, Dropout
 
-#from pokerEnv import count
 def predHandGen(count):
     if count!=0 and count%100==0:
         
