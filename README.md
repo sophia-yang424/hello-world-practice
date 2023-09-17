@@ -4,7 +4,7 @@
 * [Description](#description)
 * [Dependencies](#dependencies)
 * [Authors](#authors)
-* [file/folder description]
+* [File/folder Description] (#File/folder_Description)
 
 ## Description
 This project is for Hello World Hackathon 2023 at Purdue University. The program runs poker game with two players. While two players play the game, the program collects playing data. The data is used to train deep learning model that predicts player's hand from their actions during poker game. This model can be used to as a part of AI poker bot in the future work. This was created using java, and python.
@@ -20,7 +20,7 @@ Sophia Yang: @sophia-yang424
 Daniel Park: @DMP333
 Claire Mui:@claiream
 
-## file/folder description
+## File/folder Description
 Winning Condition: determines the winner of the game 
 betting3.py: betting algorithm 
 handPredictor.py: making hand predictor model 
