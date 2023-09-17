@@ -3,11 +3,10 @@ global roundNum
 roundNum = 0
 global pot
 pot = 0
-global recordList 
-recordList = list()
 global ratioToPot
 ratioToPot = list()
 global ratioToChip
+ratioToChip = list()
 ratioToPot = list()
 sidepotBet = 0
 smallBlind = 1
@@ -54,7 +53,8 @@ def preflopBet():
     global player1_bet_1
     global player2_bet_1
     global askFold
-    global recordList 
+    global ratioToPot
+    global ratioToChip
     askFold = ""
     #player choice
     player1_choice = int(float(input("Player 1: Do you want to (0) bet, or (-1)) check, (-2)) fold: ")))
@@ -149,13 +149,13 @@ def preflopBet():
             player2_bet_1 = int(float(input("Please either match the other player's bet or raise: ")))
             if player1_bet_1 == 0:
                 askFold = input("Are you sure you want to fold?: ")
-            if askFold == "yes" or askFold == "Yes":
-                print("You folded!")
-                exit()
-            elif askFold == "no" or askFold == "No":
-                continue
-            else: 
-                print("Please type a valid answer.")
+                if askFold == "yes" or askFold == "Yes":
+                    print("You folded!")
+                    exit()
+                elif askFold == "no" or askFold == "No":
+                    continue
+                else: 
+                    print("Please type a valid answer.")
 
             if player2_bet_1 < player1_bet_1:
                 notMatchBool = True
@@ -164,19 +164,30 @@ def preflopBet():
                 notMatchBool = False
                 break
     #list appending
-    recordList.append(player1_bet_1 / player1_wealth)
+
+    ratioToChip.append(round((player1_bet_1 / player1_wealth),3))
     player1_wealth -= player1_bet_1
-    recordList.append(player2_bet_1 / player2_wealth)
+    ratioToChip.append(round((player2_bet_1 / player2_wealth), 3))
     player2_wealth -= player2_bet_1
     #pot addition
     global pot
-    pot = 0
     pot = pot + player1_bet_1 + player2_bet_1
     potString = str(pot)
     print("The pot for pre-flop: " + potString)
     wealth_1_string = str(player1_wealth)
     wealth_2_string = str(player2_wealth)
     print("Player 1 has " + wealth_1_string + "! " + "Player 2 has " + wealth_2_string + "!")
+    #append pot
+    if pot == 0:
+        player1_bet_2 = 0
+        player2_bet_2 = 0
+        pot = 1
+        ratioToPot.append(round((player1_bet_1 / pot), 3))
+        ratioToPot.append(round((player2_bet_1 / pot), 3))
+        pot = 0
+    else:
+        ratioToPot.append(round((player1_bet_1 / pot), 3))
+        ratioToPot.append(round((player2_bet_1 / pot), 3))   
 
 ## flop
 def flopBet():
@@ -185,7 +196,8 @@ def flopBet():
     global player1_bet_2
     global player2_bet_2
     global askFold
-    global recordList 
+    global ratioToPot
+    global ratioToChip
     askFold = ""
     #player choice
     player1_choice = int(float(input("Player 1: Do you want to (0) bet, or (-1)) check, (-2)) fold: ")))
@@ -280,13 +292,14 @@ def flopBet():
             player2_bet_2 = int(float(input("Please either match the other player's bet or raise: ")))
             if player1_bet_2 == 0:
                 askFold = input("Are you sure you want to fold?: ")
-            if askFold == "yes" or askFold == "Yes":
-                print("You folded!")
-                exit()
-            elif askFold == "no" or askFold == "No":
-                continue
-            else: 
-                print("Please type a valid answer.")
+                if askFold == "yes" or askFold == "Yes":
+                    print("You folded!")
+                    notMatchBool = False
+                    exit()
+                elif askFold == "no" or askFold == "No":
+                    continue
+                else: 
+                    print("Please type a valid answer.")
 
             if player2_bet_2 < player1_bet_2:
                 notMatchBool = True
@@ -295,19 +308,29 @@ def flopBet():
                 notMatchBool = False
                 break
     #list appending
-    recordList.append(player1_bet_2 / player1_wealth)
+    ratioToChip.append(round((player1_bet_2 / player1_wealth), 3))
     player1_wealth -= player1_bet_2
-    recordList.append(player2_bet_2 / player2_wealth)
+    ratioToChip.append(round((player2_bet_2 / player2_wealth), 3))
     player2_wealth -= player2_bet_2
     #pot addition
     global pot
-    pot = 0
     pot = pot + player1_bet_2 + player2_bet_2
     potString = str(pot)
     print("The pot for flop: " + potString)
     wealth_1_string = str(player1_wealth)
     wealth_2_string = str(player2_wealth)
     print("Player 1 has " + wealth_1_string + "! " + "Player 2 has " + wealth_2_string + "!")
+    #append pot
+    if pot == 0:
+        player1_bet_2 = 0
+        player2_bet_2 = 0
+        pot = 1
+        ratioToPot.append(round((player1_bet_2 / pot), 3))
+        ratioToPot.append(round((player2_bet_2 / pot), 3))
+        pot = 0
+    else:
+        ratioToPot.append(round((player1_bet_2 / pot), 3))
+        ratioToPot.append(round((player2_bet_2 / pot), 3))   
 
 def riverBet():
     global player1_wealth
@@ -315,7 +338,8 @@ def riverBet():
     global player1_bet_3
     global player2_bet_3
     global askFold
-    global recordList 
+    global ratioToChip
+    global ratioToPot 
     askFold = ""
     #player choice
     player1_choice = int(float(input("Player 1: Do you want to (0) bet, or (-1)) check, (-2)) fold: ")))
@@ -410,13 +434,13 @@ def riverBet():
             player2_bet_3 = int(float(input("Please either match the other player's bet or raise: ")))
             if player1_bet_3 == 0:
                 askFold = input("Are you sure you want to fold?: ")
-            if askFold == "yes" or askFold == "Yes":
-                print("You folded!")
-                exit()
-            elif askFold == "no" or askFold == "No":
-                continue
-            else: 
-                print("Please type a valid answer.")
+                if askFold == "yes" or askFold == "Yes":
+                    print("You folded!")
+                    exit()
+                elif askFold == "no" or askFold == "No":
+                    continue
+                else: 
+                    print("Please type a valid answer.")
 
             if player2_bet_3 < player1_bet_3:
                 notMatchBool = True
@@ -425,19 +449,29 @@ def riverBet():
                 notMatchBool = False
                 break
     #list appending
-    recordList.append(player1_bet_3 / player1_wealth)
+    ratioToChip.append(round((player1_bet_3 / player1_wealth), 3))
     player1_wealth -= player1_bet_3
-    recordList.append(player2_bet_3 / player2_wealth)
+    ratioToChip.append(round((player2_bet_3 / player2_wealth), 3))
     player2_wealth -= player2_bet_3
     #pot addition
     global pot
-    pot = 0
     pot = pot + player1_bet_3 + player2_bet_3
     potString = str(pot)
     print("The pot for river: " + potString)
     wealth_1_string = str(player1_wealth)
     wealth_2_string = str(player2_wealth)
     print("Player 1 has " + wealth_1_string + "! " + "Player 2 has " + wealth_2_string + "!")
+    #append pot
+    if pot == 0:
+        player1_bet_3 = 0
+        player2_bet_3 = 0
+        pot = 1
+        ratioToPot.append(round((player1_bet_3 / pot), 3))
+        ratioToPot.append(round((player2_bet_3 / pot), 3))
+        pot = 0
+    else:
+        ratioToPot.append(round((player1_bet_3 / pot), 3))
+        ratioToPot.append(round((player2_bet_3 / pot), 3))   
 
 
 
@@ -449,7 +483,8 @@ def floodBet():
     global player1_bet_4
     global player2_bet_4
     global askFold
-    global recordList 
+    global ratioToChip
+    global ratioToPot
     askFold = ""
     #player choice
     player1_choice = int(float(input("Player 1: Do you want to (0) bet, or (-1)) check, (-2)) fold: ")))
@@ -544,13 +579,13 @@ def floodBet():
             player2_bet_4 = int(float(input("Please either match the other player's bet or raise: ")))
             if player1_bet_4 == 0:
                 askFold = input("Are you sure you want to fold?: ")
-            if askFold == "yes" or askFold == "Yes":
-                print("You folded!")
-                exit()
-            elif askFold == "no" or askFold == "No":
-                continue
-            else: 
-                print("Please type a valid answer.")
+                if askFold == "yes" or askFold == "Yes":
+                    print("You folded!")
+                    exit()
+                elif askFold == "no" or askFold == "No":
+                    continue
+                else: 
+                    print("Please type a valid answer.")
 
             if player2_bet_4 < player1_bet_4:
                 notMatchBool = True
@@ -559,19 +594,29 @@ def floodBet():
                 notMatchBool = False
                 break
     #list appending
-    recordList.append(player1_bet_4 / player1_wealth)
+    ratioToChip.append(round((player1_bet_4 / player1_wealth), 3))
     player1_wealth -= player1_bet_4
-    recordList.append(player2_bet_4 / player2_wealth)
+    ratioToChip.append(round((player2_bet_4 / player2_wealth), 3))
     player2_wealth -= player2_bet_4
     #pot addition 
     global pot
-    pot = 0
     pot = pot + player1_bet_4 + player2_bet_4
     potString = str(pot)
     print("The pot for flood: " + potString)
     wealth_1_string = str(player1_wealth)
     wealth_2_string = str(player2_wealth)
     print("Player 1 has " + wealth_1_string + "! " + "Player 2 has " + wealth_2_string + "!")
+    #pot append
+    if pot == 0:
+        player1_bet_4 = 0
+        player2_bet_4 = 0
+        pot = 1
+        ratioToPot.append(round((player1_bet_4 / pot), 3))
+        ratioToPot.append(round((player2_bet_4 / pot), 3))
+        pot = 0
+    else:
+        ratioToPot.append(round((player1_bet_4 / pot), 3))
+        ratioToPot.append(round((player2_bet_4 / pot), 3))   
 
 
 #results
@@ -626,10 +671,12 @@ flopBet()
 riverBet()
 floodBet()
 resultsFunction()
-print(recordList)
+print(ratioToChip)
+print(ratioToPot)
 preflopBet()
 flopBet()
 riverBet()
 floodBet()
 resultsFunction()
-print(recordList)
+print(ratioToChip)
+
