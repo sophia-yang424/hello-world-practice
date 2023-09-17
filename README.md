@@ -17,10 +17,7 @@
   ### Dependencies
   * tensorFlow
   * numpy
-  ### Installing
-  
-
-  ### Executing Program
+  * tkinter
 
   ### Authors
   Keisuke Nakamura: @Keisuke54
@@ -28,5 +25,11 @@
   Daniel Park: @DMP333
   Claire Mui:@claiream
 
-  ### Acknowledgements
-  
+  ### file/folder description
+  Winning Condition: contains
+  betting3.py: betting algorithm 
+  handPredictor.py: making hand predictor model 
+  library.py: set of poker algorithm
+  pokerEnv.py: poker game environment
+  testModel.py: run had predictor model
+  tkinterPokerGUI.py: GUI
