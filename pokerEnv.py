@@ -28,16 +28,22 @@ while cont == True:
     # 3 cards flipped and bet
     for x in range(3):
         openCard(x)
+    for card in fiveCard:
+        print(dicts[card])
     flopBet()
     appendData()
 
     # 4th card flipped and bet
     openCard(3)
+    for card in fiveCard:
+        print(dicts[card])
     riverBet()
     appendData
 
     # 5th card flipped and bet
     openCard(4)
+    for card in fiveCard:
+        print(dicts[card])
     floodBet()
     appendData()
 
