@@ -33,12 +33,10 @@ def shuffelDeck():
 def deal(player):
     player.append(deck[0])
     player.append(deck[1])
-    tempCard1 = deck[0]
-    tempCard2 = deck[1]
-    for a in range(50):
+    for a in range(len(deck)-2):
         deck[a] = deck[a+2]
-    deck[50] = tempCard1
-    deck[51] = tempCard2
+    deck.remove(deck[len(deck)-1])
+    deck.remove(deck[len(deck)-1])
 
 
 # five cards 
@@ -47,7 +45,6 @@ fiveCard = [52,52,52,52,52]
 # opening card: phase means how many cards are being opened
 def openCard(phase):
     fiveCard[phase] = deck[0]
-    tempCard = deck[0]
-    for a in range(51):
+    for a in range(len(deck)-1):
         deck[a] = deck[a+1]
-    deck[51] = tempCard
+    deck.remove(deck[len(deck)-1])
