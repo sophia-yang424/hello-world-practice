@@ -5,6 +5,10 @@ global pot
 pot = 0
 global recordList 
 recordList = list()
+global ratioToPot
+ratioToPot = list()
+global ratioToChip
+ratioToPot = list()
 sidepotBet = 0
 smallBlind = 1
 bigBlind = 2
@@ -50,16 +54,20 @@ def preflopBet():
     global player1_bet_1
     global player2_bet_1
     global askFold
+    global recordList 
     askFold = ""
-
-    player1_bet_1 = int(float(input("Player 1 bet amount, or (-1)) check, (-2)) fold): ")))
+    #player choice
+    player1_choice = int(float(input("Player 1: Do you want to (0) bet, or (-1)) check, (-2)) fold: ")))
     #checking/fold
-    if player1_bet_1 == -1:
+    if player1_choice == 0:
+        player1_bet_1 = int(float(input("Player 1 bet amount: ")))
+    elif player1_choice == -2:
+        print("Player 1 folded! Player 2 wins!")
+        exit()
+    elif player1_choice == -1:
         player1_bet_1 = 0
         print("Check!")
-    elif player1_bet_1 == -2:
-        print("You folded!")
-        exit()
+    #outbetting
     if player1_bet_1 > player2_wealth:
         outBetBool = True
     else:
@@ -86,20 +94,37 @@ def preflopBet():
             else:
                 notMatchBool = False
                 break
+    #ask about meeting check, folding or raising
+    if player1_choice == -1 :
+        askCheck = input("Player 2: Do you want to check? (yes/no): ")
+        if askCheck == "yes" or askCheck == "Yes":
+            player2_bet_1 = 0
+            print("Checks all around! Next round!")
+        elif (askCheck == "No" or askCheck == "no"):
+            askRaise = int(input("Do you want to (1) raise or (2) fold?: "))
+            if askRaise == 1:
+                raiseAmount = int(input("Raise amount: "))
+                player2_bet_1 = raiseAmount
+                meetBet = int(input("Player 1: Player 2 is raising! (-1) match the bet? or (-2) fold?: "))
+                if meetBet == -1:
+                    player1_bet_1 = raiseAmount
+                    print(player1_bet_1)
+                elif meetBet == -2:
+                    print("Player 1 folded! Player 1 wins!")
+                    exit()
+            elif askRaise == 2:
+                print("Player 2 folded! Player 1 wins!")
+                exit()
 
-    player1_wealth -= player1_bet_1
-    global recordList 
-    recordList.append(player1_bet_1 / player1_wealth)
-    player2_bet_1 = int(float(input("Player 2 bet amount, or (-1)) check, (-2)) fold): ")))
-    if player1_bet_1 == -1 :
-        askCheck = input("Do you want to check? ")
-    #checking/folding
-    if player1_bet_1 == -1:
-        player1_bet_1 = 0
-        print("Check!")
-    elif player1_bet_1 == -2:
-        print("You folded!")
-        exit()
+    elif player1_choice == 0:
+        player2_bet_1 = int(float(input("Player 2 bet amount: ")))
+        #checking/folding
+        if player2_bet_1 == -1:
+            player2_bet_1 = 0
+            print("Check!")
+        elif player2_bet_1 == -2:
+            print("You folded!")
+            exit()
     #prevent outbetting
     if player2_bet_1 > player1_wealth:
         outBetBool = True
@@ -138,9 +163,12 @@ def preflopBet():
             else:
                 notMatchBool = False
                 break
-
-    player2_wealth -= player2_bet_1
+    #list appending
+    recordList.append(player1_bet_1 / player1_wealth)
+    player1_wealth -= player1_bet_1
     recordList.append(player2_bet_1 / player2_wealth)
+    player2_wealth -= player2_bet_1
+    #pot addition
     global pot
     pot = 0
     pot = pot + player1_bet_1 + player2_bet_1
