@@ -1,4 +1,4 @@
-# Hello World 2023 - Poker Game builds Poker Hand Predictor
+# Hello World 2023 - Poker Game Builds Poker Hand Predictor
 
 ## Table of contents
 * [Description](#description)
