@@ -20,6 +20,15 @@ while cont == True:
     deal(p1Hand)
     deal(p2Hand)
 
+    print("player 1 hand: Hide this from your opponent! type yes to move forward")
+    for card in p1Hand:
+        print(dicts[card])
+    input()
+    print("player 2 hand: Hide this from your opponent! type yes to move forward")
+    for card in p2Hand:
+        print(dicts[card])
+    input()
+
     # first bet before any card flipped
     preflopBet()
     appendData()
