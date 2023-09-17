@@ -60,7 +60,7 @@ ratioToChip = []
 twoCards = []
 
 # appending data for ML model: player input is p1Hand or p2Hand
-def appendData(player):
+def appendData():
     fiveCards.append(fiveCard)
     twoCards.append(p1Hand)
     twoCards.append(p2Hand)
