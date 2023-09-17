@@ -23,7 +23,7 @@
   ### Executing Program
 
   ### Authors
-  Keisuke Nakamura: @keisuke54
+  Keisuke Nakamura: @Keisuke54
   Sophia Yang: @sophia-yang424
   Daniel Park: @DMP333
   Claire Mui:@claiream
