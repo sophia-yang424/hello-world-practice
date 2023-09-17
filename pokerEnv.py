@@ -4,7 +4,6 @@ from library import createDeck, shuffelDeck, deal, openCard, appendData
 from betting3 import ratioToPot, ratioToChip
 from betting3 import preflopBet, flopBet, riverBet, floodBet, resultsFunction
 
-
 from handPredictor import predHandGen
 
 # whether to continue the game
