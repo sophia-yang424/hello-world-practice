@@ -1,4 +1,4 @@
-# Hello World 2023 - Poker Game
+# Hello World 2023 - Poker Game + Poker Hand Predictor
 
 ## Table of contents
 * [Description](#description)
@@ -10,7 +10,7 @@
 * [Acknowledgements](#acknowledgements)
 
   ### Description
-  This project is for Hello World 2023. This consists of a poker game and an AI that is trained with the data after a player plays the poker game. The AI will try to guess the human player's hand. This was created using java, python, and 
+  This project is for Hello World Hackathon 2023 at Purdue University. The prorgam runs poker game with two players. While two players play the game, the program collects playing data. The data is used to train deep learning model that predicts player's hand from their actions during poker game. This model can be used to as a part of AI poker bot in the future work. This was created using java, python, and 
 
 ## Getting Started
 
