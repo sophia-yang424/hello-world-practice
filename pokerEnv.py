@@ -21,12 +21,16 @@ while cont == True:
     deal(p2Hand)
 
     print("player 1 hand: Hide this from your opponent! type yes to move forward")
+    input()
     for card in p1Hand:
         print(dicts[card])
+    print("type yes to continue")
     input()
     print("player 2 hand: Hide this from your opponent! type yes to move forward")
+    input()
     for card in p2Hand:
         print(dicts[card])
+    print("type yes to continue")
     input()
 
     # first bet before any card flipped
